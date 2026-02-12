@@ -3,85 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frozen Foods Website</title>
+    <title>Frozen Foods Delight</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 1em 0;
-        }
-        .product {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .product-item {
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin: 10px;
-            padding: 15px;
-            width: 200px;
-            text-align: center;
-            transition: transform 0.2s;
-        }
-        .product-item:hover {
-            transform: scale(1.05);
-        }
-        .price {
-            font-size: 1.5em;
-            color: #4CAF50;
-        }
-        .whatsapp-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #25D366;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .whatsapp-button:hover {
-            background-color: #128C7E;
-        }
-        footer {
-            text-align: center;
-            padding: 1em 0;
-            background-color: #f1f1f1;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+        body { font-family: Arial, sans-serif; background: linear-gradient(to right, #ff7e5f, #feb47b); color: #333; }
+        .container { max-width: 1200px; margin: auto; overflow: hidden; }
+        .header { text-align: center; padding: 20px; }
+        .products { display: flex; flex-wrap: wrap; justify-content: space-around; }
+        .product { margin: 20px; padding: 20px; border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 10px; background: white; transition: transform 0.2s; }
+        .product:hover { transform: scale(1.05); }
+        button { background-color: #4CAF50; color: white; border: none; padding: 10px 20px; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        .cart { position: fixed; top: 0; right: 0; width: 300px; background: white; border-left: 1px solid rgba(0, 0, 0, 0.1); padding: 20px; z-index: 1000; } 
+        /* Additional CSS animations */
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Frozen Foods</h1>
-    </header>
-    <div class="product">
-        <div class="product-item">
-            <h2>Frozen Peas</h2>
-            <p class="price">₨ 100</p>
-            <a href="https://wa.me/1234567890" class="whatsapp-button">Contact Us on WhatsApp</a>
-        </div>
-        <div class="product-item">
-            <h2>Frozen Chicken</h2>
-            <p class="price">₨ 200</p>
-            <a href="https://wa.me/1234567890" class="whatsapp-button">Contact Us on WhatsApp</a>
-        </div>
-        <div class="product-item">
-            <h2>Frozen Fish</h2>
-            <p class="price">₨ 300</p>
-            <a href="https://wa.me/1234567890" class="whatsapp-button">Contact Us on WhatsApp</a>
+    <div class="header">
+        <h1>Welcome to Frozen Foods Delight</h1>
+    </div>
+    <div class="container">
+        <div class="products">
+            <div class="product">
+                <h2>Nuggets</h2>
+                <p>Price: Rs. 1000</p>
+                <button onclick="addToCart('Nuggets', 1000)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h2>Chicken Samosay</h2>
+                <p>Price: Rs. 550</p>
+                <button onclick="addToCart('Chicken Samosay', 550)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h2>Beef Samosay</h2>
+                <p>Price: Rs. 550</p>
+                <button onclick="addToCart('Beef Samosay', 550)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h2>Vegetable Roll</h2>
+                <p>Price: Rs. 700</p>
+                <button onclick="addToCart('Vegetable Roll', 700)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h2>Patties</h2>
+                <p>Price: Rs. 500</p>
+                <button onclick="addToCart('Patties', 500)">Add to Cart</button>
+            </div>
         </div>
     </div>
-    <footer>
-        <p>&copy; 2026 Frozen Foods. All rights reserved.</p>
-    </footer>
+    <div class="cart">
+        <h2>Shopping Cart</h2>
+        <div id="cart-items"></div>
+        <button id="checkout" onclick="checkout()">Checkout via WhatsApp</button>
+    </div>
+    <script>
+        let cart = [];
+        function addToCart(product, price) {
+            cart.push({ product, price });
+            renderCart();
+        }
+        function renderCart() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            cart.forEach(item => {
+                cartItems.innerHTML += `<p>${item.product} - Rs. ${item.price}</p>`;
+            });
+        }
+        function checkout() {
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            const message = `Checkout: Total Rs. ${total}. Contact us at +92 324 3384035`; 
+            window.open(`https://wa.me/923243384035?text=${encodeURIComponent(message)}`);
+        }
+    </script>
 </body>
 </html>
