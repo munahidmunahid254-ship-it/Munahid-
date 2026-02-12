@@ -3,60 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frozen Foods Store</title>
+    <title>Frozen Foods Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
-        h1 {
-            color: #333;
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
         }
         .product {
-            border: 1px solid #ddd;
-            background-color: #fff;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        .product h2 {
-            margin: 0;
-            font-size: 20px;
+        .product-item {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 10px;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .product-item:hover {
+            transform: scale(1.05);
         }
         .price {
-            color: green;
-            font-weight: bold;
+            font-size: 1.5em;
+            color: #4CAF50;
+        }
+        .whatsapp-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+        }
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #f1f1f1;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to the Frozen Foods Store!</h1>
+    <header>
+        <h1>Welcome to Frozen Foods</h1>
+    </header>
     <div class="product">
-        <h2>Nuggets</h2>
-        <p class="price">$5.99</p>
-        <p>Delicious chicken nuggets, perfect for a quick snack.</p>
+        <div class="product-item">
+            <h2>Frozen Peas</h2>
+            <p class="price">₨ 100</p>
+            <a href="https://wa.me/1234567890" class="whatsapp-button">Contact Us on WhatsApp</a>
+        </div>
+        <div class="product-item">
+            <h2>Frozen Chicken</h2>
+            <p class="price">₨ 200</p>
+            <a href="https://wa.me/1234567890" class="whatsapp-button">Contact Us on WhatsApp</a>
+        </div>
+        <div class="product-item">
+            <h2>Frozen Fish</h2>
+            <p class="price">₨ 300</p>
+            <a href="https://wa.me/1234567890" class="whatsapp-button">Contact Us on WhatsApp</a>
+        </div>
     </div>
-    <div class="product">
-        <h2>Chicken Keemay Samosay</h2>
-        <p class="price">$6.99</p>
-        <p>Golden fried samosas filled with spicy minced chicken.</p>
-    </div>
-    <div class="product">
-        <h2>Beef Qemay Ky Samosay</h2>
-        <p class="price">$7.49</p>
-        <p>Crunchy samosas stuffed with seasoned ground beef.</p>
-    </div>
-    <div class="product">
-        <h2>Vegetable Roll</h2>
-        <p class="price">$4.99</p>
-        <p>Mixed vegetables wrapped in a crispy roll.</p>
-    </div>
-    <div class="product">
-        <h2>Patties</h2>
-        <p class="price">$5.49</p>
-        <p>Flaky patties filled with a savory mix of spices.</p>
-    </div>
+    <footer>
+        <p>&copy; 2026 Frozen Foods. All rights reserved.</p>
+    </footer>
 </body>
 </html>
